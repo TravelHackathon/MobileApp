@@ -15,7 +15,7 @@ export default class Client extends Component {
         return (
             <View style={styles[this.props.platform]}>
                 <StatusBar
-                    backgroundColor="blue"
+                    backgroundColor="#ff8a42"
                     barStyle="light-content"
                 />
                 <Scene/>
