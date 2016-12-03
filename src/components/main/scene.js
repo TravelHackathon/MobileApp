@@ -9,6 +9,8 @@ import {
     Image
 } from 'react-native';
 
+import Icon from 'react-native-vector-icons/Ionicons';
+
 import MainScene from '../scenes/main'
 import CustomTransitions from '../../transitions/CustomTransitions';
 import NavigationStore from '../../stores/NvaigationStore';
@@ -30,6 +32,7 @@ export default class Scene extends Component {
             <View style={styles.main}>
                 <Image source={background} style={styles.backgroundImage}>
                     <View style={styles.header}>
+                        <Icon style={styles.hamburger} name="md-reorder" size={30} color="#900" />
                         <Text style={styles.title}>Trelper</Text>
                     </View>
                     <Navigator
@@ -54,13 +57,23 @@ const styles = StyleSheet.create({
     header: {
         backgroundColor: '#FF6514',
         borderBottomWidth: 4,
-        borderBottomColor:'#D0450F'
+        borderBottomColor:'#D0450F',
+        flexDirection: 'row',
+        height: 46
     },
     title: {
         color: '#fff',
         fontSize: 20,
         fontWeight: 'bold',
         lineHeight: 46
+    },
+    hamburger: {
+        color: '#fff',
+        fontSize: 30,
+        fontWeight: 'bold',
+        lineHeight: 46,
+        paddingLeft: 5,
+        paddingRight: 5
     }
 });
 
