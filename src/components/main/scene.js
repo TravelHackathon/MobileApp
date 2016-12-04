@@ -13,8 +13,10 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import MainScene from '../scenes/main'
 import CustomTransitions from '../../transitions/CustomTransitions';
-import NavigationStore from '../../stores/NvaigationStore';
-import background from '../../Images/background.jpg'
+import NavigationStore from '../../stores/NavigationStore';
+import background from '../../images/background.jpg'
+
+import clientStyle from '../../styles/sceneStyle';
 
 // TODO: Refactor this method
 const scenes = (route, navigator) => {
@@ -46,35 +48,6 @@ export default class Scene extends Component {
     }
 }
 
-const styles = StyleSheet.create({
-    main: {
-        flex: 1
-    },
-    backgroundImage: {
-        flex: 1,
-        resizeMode: 'cover', // or 'stretch'
-    },
-    header: {
-        backgroundColor: '#FF6514',
-        borderBottomWidth: 4,
-        borderBottomColor:'#D0450F',
-        flexDirection: 'row',
-        height: 46
-    },
-    title: {
-        color: '#fff',
-        fontSize: 20,
-        fontWeight: 'bold',
-        lineHeight: 46
-    },
-    hamburger: {
-        color: '#fff',
-        fontSize: 30,
-        fontWeight: 'bold',
-        lineHeight: 46,
-        paddingLeft: 5,
-        paddingRight: 5
-    }
-});
+const styles = StyleSheet.create(clientStyle);
 
 AppRegistry.registerComponent('Scene', () => Scene);

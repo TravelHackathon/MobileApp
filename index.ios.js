@@ -4,10 +4,13 @@ import {
 } from 'react-native';
 import Client from './src/client';
 
+import NavigationStore from './src/stores/NavigationStore';
+NavigationStore.platform = 'ios';
+
 export default class HackatonHelpButton extends Component {
     render() {
         return (
-            <Client platform="ios"/>
+            <Client />
         );
     }
 }

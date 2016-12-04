@@ -7,13 +7,12 @@ import {
 } from 'react-native';
 
 import Scene from './components/main/scene';
+import clientStyle from './styles/clientStyle';
 
 export default class Client extends Component {
-
-
     render() {
         return (
-            <View style={styles[this.props.platform]}>
+            <View style={styles.wrap}>
                 <StatusBar
                     backgroundColor="#ff8a42"
                     barStyle="light-content"
@@ -24,13 +23,4 @@ export default class Client extends Component {
     }
 }
 
-const styles = StyleSheet.create({
-    ios: {
-        paddingTop: 20,
-        backgroundColor: '#ff8a42',
-        flex: 1
-    },
-    android: {
-        flex: 1
-    }
-});
+const styles = StyleSheet.create(clientStyle);

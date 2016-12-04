@@ -6,10 +6,13 @@ import {
     View
 } from 'react-native';
 
+import NavigationStore from '../../stores/NavigationStore';
+
+
 export default class MainScene extends Component {
     render() {
         return (
-            <Text>sadf</Text>
+            <Text>{NavigationStore.platform}</Text>
         );
     }
 }
