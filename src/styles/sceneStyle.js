@@ -3,7 +3,8 @@ import NavigationStore from '../stores/NavigationStore';
 const styles = {
     ios: {
         main: {
-            flex: 1
+            flex: 1,
+            flexWrap: 'wrap'
         },
         backgroundImage: {
             flex: 1,
@@ -33,7 +34,9 @@ const styles = {
     },
     android: {
         main: {
-            flex: 1
+            flex: 1,
+            flexWrap: 'wrap',
+            flexDirection:'row'
         },
         backgroundImage: {
             flex: 1,

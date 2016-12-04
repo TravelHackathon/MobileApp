@@ -14,11 +14,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import NavigationStore from '../../stores/NavigationStore';
 
-export default class MainScene extends Component {
-    goToStart() {
-        NavigationStore.navigationState = 'start';
+export default class StartScene extends Component {
+    goTo(name) {
+        NavigationStore.navigationState = name;
         NavigationStore.navigator.push({
-            name: 'start'
+            name: name
         })
     }
 
@@ -26,11 +26,11 @@ export default class MainScene extends Component {
         return (
             <View style={styles.container}>
                 <Image source={logo} style={styles.logo}/>
-                <Text style={styles.introText}>Welcome! We glad to see you in our app.</Text>
+                <Text style={styles.introText}>Start!</Text>
                 <Text style={styles.introText}>TRALPER is a new way to find information about eveithyng that you need in Kyrgyzstan.</Text>
                 <Text style={styles.introText}>Just open electronic guide with information or type to one of our operators in chat, or you can just call him and he will answer questions.</Text>
 
-                <TouchableOpacity style={styles.startButton} onPress={this.goToStart}>
+                <TouchableOpacity style={styles.startButton} onPress={this.goTo}>
                     <Icon style={styles.arrow} name="ios-arrow-forward-outline" size={27} color="#fff" />
                     <Text style={styles.letsText}>Let's start</Text>
                 </TouchableOpacity>
@@ -79,4 +79,4 @@ const styles = StyleSheet.create({
     }
 });
 
-AppRegistry.registerComponent('MainScene', () => MainScene);
+AppRegistry.registerComponent('StartScene', () => StartScene);

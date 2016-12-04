@@ -12,6 +12,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import MainScene from '../scenes/main'
+import StartScene from '../scenes/start'
 import CustomTransitions from '../../transitions/CustomTransitions';
 import NavigationStore from '../../stores/NavigationStore';
 import background from '../../images/background.jpg'
@@ -20,6 +21,10 @@ import clientStyle from '../../styles/sceneStyle';
 
 // TODO: Refactor this method
 const scenes = (route, navigator) => {
+    if (route.name === 'start') {
+        return <StartScene navigator={navigator} />
+    }
+
     return <MainScene navigator={navigator} />
 };
 
