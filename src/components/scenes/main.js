@@ -55,7 +55,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         alignSelf: 'stretch',
         paddingTop: 10,
-        paddingBottom: 10
+        paddingBottom: 10,
+        marginRight:5,
+        marginLeft:5
     },
     startButton: {
         flexDirection: 'row',

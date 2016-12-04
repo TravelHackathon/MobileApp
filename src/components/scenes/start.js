@@ -26,14 +26,19 @@ export default class StartScene extends Component {
         return (
             <View style={styles.container}>
                 <Image source={logo} style={styles.logo}/>
-                <Text style={styles.introText}>Start!</Text>
                 <Text style={styles.introText}>TRALPER is a new way to find information about eveithyng that you need in Kyrgyzstan.</Text>
-                <Text style={styles.introText}>Just open electronic guide with information or type to one of our operators in chat, or you can just call him and he will answer questions.</Text>
 
-                <TouchableOpacity style={styles.startButton} onPress={this.goTo}>
-                    <Icon style={styles.arrow} name="ios-arrow-forward-outline" size={27} color="#fff" />
-                    <Text style={styles.letsText}>Let's start</Text>
-                </TouchableOpacity>
+                <View style={styles.containerButtons}>
+                    <TouchableOpacity style={styles.startButton} onPress={this.goTo}>
+                        <Icon style={styles.arrow} name="ios-arrow-forward-outline" size={27} color="#fff" />
+                        <Text style={styles.letsText}>Call</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.startButton} onPress={this.goTo}>
+                        <Icon style={styles.arrow} name="ios-arrow-forward-outline" size={27} color="#fff" />
+                        <Text style={styles.letsText}>Get chat</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         );
     }
@@ -43,6 +48,10 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         alignSelf: 'stretch',
+    },
+    containerButtons: {
+        flexDirection: 'row',
+
     },
     logo: {
         width: 220,
@@ -54,13 +63,16 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         alignSelf: 'stretch',
+        marginRight:5,
+        marginLeft:5,
         paddingTop: 10,
         paddingBottom: 10
     },
     startButton: {
+        flex: 1,
         flexDirection: 'row',
-        marginRight:40,
-        marginLeft:40,
+        marginRight:5,
+        marginLeft:5,
         marginTop:40,
         paddingTop:10,
         paddingBottom:10,
@@ -73,6 +85,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         marginRight:10,
         marginLeft:5,
+        textAlign: 'center'
     },
     arrow: {
         marginLeft: 10
