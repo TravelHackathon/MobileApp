@@ -14,28 +14,34 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import NavigationStore from '../../stores/NavigationStore';
 
+const goTo = (name) => {
+    NavigationStore.navigationState = name;
+    NavigationStore.navigator.push({
+        name: name
+    })
+};
+
 export default class StartScene extends Component {
-    goTo(name) {
-        NavigationStore.navigationState = name;
-        NavigationStore.navigator.push({
-            name: name
-        })
+    goToChat() {
+        goTo('chat')
     }
 
     render() {
         return (
             <View style={styles.container}>
                 <Image source={logo} style={styles.logo}/>
-                <Text style={styles.introText}>TRALPER is a new way to find information about eveithyng that you need in Kyrgyzstan.</Text>
+                <Text style={styles.introText}>All you need is to call or chat.</Text>
 
                 <View style={styles.containerButtons}>
-                    <TouchableOpacity style={styles.startButton} onPress={this.goTo}>
-                        <Icon style={styles.arrow} name="ios-arrow-forward-outline" size={27} color="#fff" />
+                    <TouchableOpacity style={styles.buttonCall} onPress={this.goTo}>
+                        <Icon style={styles.arrow} name="ios-call" size={25} color="#fff" />
                         <Text style={styles.letsText}>Call</Text>
                     </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.startButton} onPress={this.goTo}>
-                        <Icon style={styles.arrow} name="ios-arrow-forward-outline" size={27} color="#fff" />
+                </View>
+                <Text style={styles.callText}>Call cost is 1$/min</Text>
+                <View style={styles.containerButtons}>
+                    <TouchableOpacity style={styles.buttonChat} onPress={this.goToChat}>
+                        <Icon style={styles.arrow} name="ios-chatboxes" size={25} color="#fff" />
                         <Text style={styles.letsText}>Get chat</Text>
                     </TouchableOpacity>
                 </View>
@@ -51,7 +57,6 @@ const styles = StyleSheet.create({
     },
     containerButtons: {
         flexDirection: 'row',
-
     },
     logo: {
         width: 220,
@@ -68,24 +73,41 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         paddingBottom: 10
     },
-    startButton: {
+    callText: {
+        color: '#fff',
+        fontSize: 15
+    },
+    buttonCall: {
         flex: 1,
         flexDirection: 'row',
         marginRight:5,
         marginLeft:5,
         marginTop:40,
         paddingTop:10,
-        paddingBottom:10,
-        backgroundColor:'#FF6514',
+        paddingBottom:8,
+        backgroundColor:'#0c940a',
+        borderRadius:10,
+        borderWidth: 0
+    },
+    buttonChat: {
+        flex: 1,
+        flexDirection: 'row',
+        marginRight:5,
+        marginLeft:5,
+        marginTop:10,
+        paddingTop:10,
+        paddingBottom:8,
+        backgroundColor:'#203bae',
         borderRadius:10,
         borderWidth: 0
     },
     letsText: {
-        fontSize: 20,
+        fontSize: 18,
         color: '#fff',
+        alignItems: 'center',
+        textAlign: 'center',
         marginRight:10,
         marginLeft:5,
-        textAlign: 'center'
     },
     arrow: {
         marginLeft: 10

@@ -6,6 +6,7 @@ import {
     View,
     Navigator,
     Components,
+    TouchableOpacity,
     Image
 } from 'react-native';
 
@@ -13,6 +14,9 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import MainScene from '../scenes/main'
 import StartScene from '../scenes/start'
+import ChatScene from '../scenes/chat'
+import CatalogScene from '../scenes/catalog'
+import TaxiScene from '../scenes/taxi'
 import CustomTransitions from '../../transitions/CustomTransitions';
 import NavigationStore from '../../stores/NavigationStore';
 import background from '../../images/background.jpg'
@@ -25,7 +29,26 @@ const scenes = (route, navigator) => {
         return <StartScene navigator={navigator} />
     }
 
+    if (route.name === 'chat') {
+        return <ChatScene navigator={navigator} />
+    }
+
+    if (route.name === 'catalog') {
+        return <CatalogScene navigator={navigator} />
+    }
+
+    if (route.name === 'taxi') {
+        return <TaxiScene navigator={navigator} />
+    }
+
     return <MainScene navigator={navigator} />
+};
+
+const goTo = (name) => {
+    NavigationStore.navigationState = name;
+    NavigationStore.navigator.push({
+        name: name
+    })
 };
 
 export default class Scene extends Component {
@@ -39,8 +62,8 @@ export default class Scene extends Component {
             <View style={styles.main}>
                 <Image source={background} style={styles.backgroundImage}>
                     <View style={styles.header}>
-                        <Icon style={styles.hamburger} name="md-reorder" size={30} color="#900" />
-                        <Text style={styles.title}>Trelper</Text>
+                        <TouchableOpacity onPress={() => (goTo('catalog'))}><Icon style={styles.hamburger} name="ios-apps" size={30} color="#900" /></TouchableOpacity>
+                        <TouchableOpacity onPress={() => (goTo('start'))}><Text style={styles.title}>Trelper</Text></TouchableOpacity>
                     </View>
                     <Navigator
                         initialRoute={{ name: NavigationStore.navigationState }}
